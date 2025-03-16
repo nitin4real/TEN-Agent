@@ -253,11 +253,11 @@ func (s *HttpServer) handlerStart(c *gin.Context) {
 		return
 	}
 
-	if workers.Contains(req.ChannelName) {
-		slog.Error("handlerStart channel existed", "channelName", req.ChannelName, "requestId", req.RequestId, logTag)
-		s.output(c, codeErrChannelExisted, http.StatusBadRequest)
-		return
-	}
+	// if workers.Contains(req.ChannelName) {
+	// 	slog.Error("handlerStart channel existed", "channelName", req.ChannelName, "requestId", req.RequestId, logTag)
+	// 	s.output(c, codeErrChannelExisted, http.StatusBadRequest)
+	// 	return
+	// }
 
 	// Check if the graphName contains "gemini"
 	if strings.Contains(req.GraphName, "gemini") {
