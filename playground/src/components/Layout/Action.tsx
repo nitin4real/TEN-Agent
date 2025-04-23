@@ -126,18 +126,17 @@ export default function Action(props: { className?: string }) {
       {/* Action Bar */}
       <div
         className={cn(
-          "mx-2 mt-2 flex items-center justify-between rounded-t-lg bg-[#181a1d] p-2 md:m-2 md:rounded-lg",
+          "mx-2 mt-2 flex items-center justify-between rounded-t-lg bg-[white] p-2 md:m-2 md:rounded-lg",
           className
         )}
       >
         {/* -- Description Part */}
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
           <span className="text-sm font-bold">Description</span>
           <span className="ml-2 text-xs text-muted-foreground whitespace-nowrap">
-            A Realtime Conversational AI Agent powered by TEN
+            A Realtime Conversational AI
           </span>
-
-        </div>
+        </div> */}
 
         <div className="flex w-full flex-col md:flex-row md:items-center justify-between md:justify-end">
           {/* -- Tabs Section */}
@@ -160,8 +159,8 @@ export default function Action(props: { className?: string }) {
             <RemoteGraphSelect />
             {isEditModeOn && (
               <>
-                <TrulienceCfgSheet />
-                <RemoteModuleCfgSheet />
+                {/* <TrulienceCfgSheet /> */}
+                {/* <RemoteModuleCfgSheet /> */}
                 <RemotePropertyCfgSheet />
               </>
             )}
@@ -173,7 +172,7 @@ export default function Action(props: { className?: string }) {
                 variant={!agentConnected ? "default" : "destructive"}
                 size="sm"
                 disabled={!selectedGraphId && !agentConnected}
-                className="w-fit min-w-24"
+                className="w-fit min-w-96"
                 loading={loading}
                 svgProps={{ className: "h-4 w-4 text-muted-foreground" }}
               >

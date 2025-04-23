@@ -19,6 +19,7 @@ import MicrophoneBlock from "@/components/Agent/Microphone"
 import VideoBlock from "@/components/Agent/Camera"
 import dynamic from "next/dynamic"
 import ChatCard from "@/components/Chat/ChatCard"
+import Action from "../Layout/Action"
 
 let hasInit: boolean = false
 
@@ -65,7 +66,7 @@ export default function RTCCard(props: { className?: string }) {
     rtcManager.on("localTracksChanged", onLocalTracksChanged)
     rtcManager.on("textChanged", onTextChanged)
     rtcManager.on("remoteUserChanged", onRemoteUserChanged)
-    await rtcManager.createCameraTracks()
+    // await rtcManager.createCameraTracks()
     await rtcManager.createMicrophoneAudioTrack()
     await rtcManager.join({
       channel,
@@ -101,7 +102,7 @@ export default function RTCCard(props: { className?: string }) {
     }
     if (user.audioTrack) {
       setRemoteUser(user)
-    } 
+    }
   }
 
   const onLocalTracksChanged = (tracks: IUserTracks) => {
@@ -126,39 +127,27 @@ export default function RTCCard(props: { className?: string }) {
   }
 
   const onVideoSourceTypeChange = async (value: VideoSourceType) => {
-    await rtcManager.switchVideoSource(value)
-    setVideoSourceType(value)
+    // await rtcManager.switchVideoSource(value)
+    // setVideoSourceType(value)
   }
 
   return (
-    <div className={cn("flex h-full flex-col min-h-0", className)}>
+    <div className={cn("flex h-full flex-col min-h-0 space-y-10 ", className)}>
       {/* Scrollable top region (Avatar or ChatCard) */}
-      <div className="min-h-0 overflow-y-auto z-10">
-        {useTrulienceAvatar ? (
-          !avatarInLargeWindow ? (
-            <div className="h-60 w-full p-1">
-              <Avatar localAudioTrack={audioTrack} audioTrack={remoteuser?.audioTrack} />
-            </div>
-          ) : (
-            !isCompactLayout &&
-            <ChatCard
-              className="m-0 w-full h-full rounded-b-lg bg-[#181a1d] md:rounded-lg"
-            />
-          )
-        ) : (
-          <AgentView  audioTrack={remoteuser?.audioTrack} />
-        )}
+      <div className="min-h-0 overflow-y-auto z-10 px-2 py-2">
+        <h1>
+          Agent Voice
+        </h1>
+        <AgentView audioTrack={remoteuser?.audioTrack} />
       </div>
 
       {/* Bottom region for microphone and video blocks */}
       <div className="w-full space-y-2 px-2 py-2">
+        <h1>
+          User Voice
+        </h1>
         <MicrophoneBlock audioTrack={audioTrack} />
-        <VideoBlock
-          cameraTrack={videoTrack}
-          screenTrack={screenTrack}
-          videoSourceType={videoSourceType}
-          onVideoSourceChange={onVideoSourceTypeChange}
-        />
+        <Action />
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ export function RemoteGraphSelect() {
             "w-auto", // or "w-auto max-w-full" if you want to keep the existing defaults
           )}
         >
-          <SelectValue placeholder={"Select Graph"} />
+          <SelectValue placeholder={"Select TTS Vendor"} />
         </SelectTrigger>
         <SelectContent>
           {graphOptions.map((item) => (

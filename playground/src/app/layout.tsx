@@ -6,9 +6,9 @@ import { Toaster } from "@/components/ui/sonner"
 import "./global.css"
 
 export const metadata: Metadata = {
-  title: "TEN Agent | Real-Time Multimodal AI Agent",
+  title: "Dubverse Demo",
   description:
-    "TEN Agent is an open-source multimodal AI agent that can speak, see, and access a knowledge base(RAG).",
+    "Dubverse TTS Demo.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black",
@@ -31,19 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="dark">
-        {/* <ConfigProvider
-          theme={{
-            components: {
-              Select: {
-                selectorBg: "#181A1D",
-              },
-            },
-          }}
-        > */}
+      <body>
         <StoreProvider>{children}</StoreProvider>
-        {/* </ConfigProvider> */}
-        <Toaster richColors closeButton theme="dark" />
+        {/* <Toaster richColors closeButton /> */}
       </body>
     </html>
   )

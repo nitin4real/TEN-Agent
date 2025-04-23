@@ -56,7 +56,7 @@ export function MessageItem(props: { data: IChatItem }) {
             </AvatarFallback>
           </Avatar>
         ) : null}
-        <div className="max-w-[80%] rounded-lg bg-secondary p-2 text-secondary-foreground">
+        <div className="max-w-[80%] rounded-lg bg-[#A0D4FF] p-2 text-secondary-foreground">
           {data.data_type === EMessageDataType.IMAGE ? (
             <img src={data.text} alt="chat" className="w-full" />
           ) : (

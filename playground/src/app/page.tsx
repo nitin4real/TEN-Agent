@@ -51,16 +51,16 @@ export default function Home() {
     <AuthInitializer>
       <div className="relative mx-auto flex flex-1 min-h-screen flex-col md:h-screen">
         <Header className="h-[60px]" />
-        <Action />
+        {/* <Action /> */}
         <div className={cn(
-          "mx-2 mb-2 flex h-full max-h-[calc(100vh-108px-24px)] flex-col md:flex-row md:gap-2 flex-1",
+          "mx-2 mb-2 flex h-full max-h-[calc(100vh-108px-24px)] flex-col md:flex-row md:gap-2 flex-1 pt-10",
           {
             ["flex-col-reverse"]: avatarInLargeWindow && isCompactLayout
           }
         )}>
           <DynamicRTCCard
             className={cn(
-              "m-0 w-full rounded-b-lg bg-[#181a1d] md:w-[480px] md:rounded-lg flex-1 flex",
+              "m-0 w-full rounded-b-lg bg-[white] md:w-[480px] md:rounded-lg flex-1 flex",
               {
                 ["hidden md:flex"]: mobileActiveTab === EMobileActiveTab.CHAT,
               }
@@ -70,7 +70,7 @@ export default function Home() {
           {(!useTrulienceAvatar || isCompactLayout || !avatarInLargeWindow) && (
             <DynamicChatCard
               className={cn(
-                "m-0 w-full rounded-b-lg bg-[#181a1d] md:rounded-lg flex-auto",
+                "m-0 w-full rounded-b-lg bg-[white] md:rounded-lg flex-auto",
                 {
                   ["hidden md:flex"]: mobileActiveTab === EMobileActiveTab.AGENT,
                 }
@@ -82,7 +82,7 @@ export default function Home() {
             <div className={cn(
               "w-full",
               {
-                ["h-60 flex-auto p-1 bg-[#181a1d]"]: isCompactLayout,
+                ["h-60 flex-auto p-1 bg-[white]"]: isCompactLayout,
                 ["hidden md:block"]: mobileActiveTab === EMobileActiveTab.CHAT,
               }
             )}>

@@ -37,7 +37,7 @@ export default function MicrophoneBlock(props: {
     audioTrack?.setMuted(audioMute)
   }, [audioTrack, audioMute])
 
-  const subscribedVolumes = useMultibandTrackVolume(mediaStreamTrack, 20)
+  const subscribedVolumes = useMultibandTrackVolume(mediaStreamTrack, 8)
 
   const onAudioTrackupdated = (track: MediaStreamTrack) => {
     console.log("[test] audio track updated", track)
@@ -56,14 +56,14 @@ export default function MicrophoneBlock(props: {
       isActive={!audioMute}
       select={<MicrophoneSelect audioTrack={audioTrack} />}
     >
-      <div className="mt-3 flex h-12 flex-col items-center justify-center gap-2.5 self-stretch rounded-md border border-[#272A2F] bg-[#1E2024] p-2 shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)]">
+      <div className="mt-3 flex h-12 flex-col items-center justify-center gap-2.5 self-stretch rounded-md border border-[#A0D4FF] bg-[#A0D4FF] p-2 shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)]">
         <AudioVisualizer
           type="user"
-          barWidth={4}
-          minBarHeight={2}
-          maxBarHeight={20}
           frequencies={subscribedVolumes}
-          borderRadius={2}
+          barWidth={20}
+          minBarHeight={2}
+          maxBarHeight={40}
+          borderRadius={10}
           gap={4}
         />
       </div>
